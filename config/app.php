@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * LogViewer
+         */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class
+
     ],
 
     /*
