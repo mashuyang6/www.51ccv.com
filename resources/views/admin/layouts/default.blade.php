@@ -30,8 +30,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- Layui Css -->
+    <link rel="stylesheet" href="{{ asset("/layui/css/layui.css") }}">
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
@@ -55,6 +57,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset("/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset("/admin-lte/dist/js/adminlte.min.js") }}"></script>
+<!-- Layui Js -->
+<script src="{{ asset("/layui/layui.js") }}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

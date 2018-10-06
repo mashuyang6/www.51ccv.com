@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{ asset("/admin-lte/bower_components/Ionicons/css/ionicons.min.css") }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css") }}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset("/admin-lte/plugins/iCheck/square/blue.css") }}">
+    <!-- Layui Css -->
+    <link rel="stylesheet" href="{{ asset("/layui/css/layui.css") }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,55 +25,44 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="{{ asset("/admin") }}"><b>Admin</b>LTE</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="../../index2.html" method="post">
+        <form class="layui-form" action="{{ asset("/admin/dologin") }}" method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="text" name="username" class="form-control" placeholder="Name" lay-verify="username"
+                       autocomplete="off">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" lay-verify="pass" placeholder="Password" autocomplete="off"
+                       class="layui-input">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> Remember Me
-                        </label>
+                <div class="layui-form-item">
+                    <div class="col-xs-7">
+                        <input type="checkbox" name="" title="Remember Me" lay-skin="primary" checked>
+                    </div>
+
+                    <div class="col-xs-5">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat" lay-submit
+                                lay-filter="loginForm">
+                            Sign In
+                        </button>
                     </div>
                 </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                </div>
-                <!-- /.col -->
             </div>
         </form>
-
-        <!--
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                Google+</a>
-        </div>
-
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
-        -->
-
     </div>
     <!-- /.login-box-body -->
 </div>
@@ -83,15 +72,57 @@
 <script src="{{ asset("/admin-lte/bower_components/jquery/dist/jquery.min.js") }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset("/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
-<!-- iCheck -->
-<script src="{{ asset("/admin-lte/plugins/iCheck/icheck.min.js") }}"></script>
+<!-- Layui Js -->
+<script src="{{ asset("/layui/layui.js") }}"></script>
 <script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
+    layui.use('form', function () {
+        var form = layui.form;
+
+        /**
+         * 监听提交
+         */
+        form.on('submit(loginForm)', function (data) {
+            $.post("{{ asset("/admin/dologin") }}", data.field, function (res) {
+                if (res.status == 1) {
+                    layer.msg(res.info, {time: 2000});
+                    var url = "{{ asset("/admin") }}"; //地址首页
+                    setTimeout(window.location.href = url, 2000);
+                } else {
+                    layer.msg(res.info, {time: 2000});
+                }
+            }, 'json');
+
+            return false;
         });
+
+        /**
+         * 自定义表单验证
+         */
+        form.verify({
+            username: function (value, item) { //value：表单的值、item：表单的DOM对象
+                if (value == '') {
+                    return '用户名不能空';
+                }
+                if (!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)) {
+                    return '用户名不能有特殊字符';
+                }
+                if (/(^\_)|(\__)|(\_+$)/.test(value)) {
+                    return '用户名首尾不能出现下划线\'_\'';
+                }
+                if (/^\d+\d+\d$/.test(value)) {
+                    return '用户名不能全为数字';
+                }
+            },
+            pass: function (value) {
+                if (value == '') {
+                    return '密码不能空';
+                }
+                if (!new RegExp("^[\\S]{6,12}$").test(value)) {
+                    return '密码必须6到12位，且不能出现空格';
+                }
+            }
+        });
+
     });
 </script>
 </body>

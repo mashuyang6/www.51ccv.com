@@ -11,5 +11,14 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
-Route::get('/login', 'IndexController@login');
+
+Route::group([
+], function () {
+    Route::get('/', 'IndexController@index');
+
+    //管理员登录
+    Route::get('/login', 'LoginController@login');
+    Route::get('/logout', 'LoginController@logout');
+    Route::post('/dologin', 'LoginController@doLogin');
+
+});

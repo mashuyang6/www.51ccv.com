@@ -39,7 +39,6 @@ class ComposerStaticInit7af2e1011781c1593ccbfa8f9bb5b1af
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
-            'Tests\\' => 6,
         ),
         'S' => 
         array (
@@ -138,10 +137,6 @@ class ComposerStaticInit7af2e1011781c1593ccbfa8f9bb5b1af
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
-        ),
-        'Tests\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/tests',
         ),
         'Symfony\\Thanks\\' => 
         array (
@@ -335,23 +330,29 @@ class ComposerStaticInit7af2e1011781c1593ccbfa8f9bb5b1af
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/IndexController.php',
+        'App\\Http\\Controllers\\Admin\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\AdminLogin' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminLogin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Logics\\Base' => __DIR__ . '/../..' . '/app/Logics/Base.php',
+        'App\\Logics\\User\\Users\\Users' => __DIR__ . '/../..' . '/app/Logics/User/Users.php',
+        'App\\Models\\Admin\\Admins' => __DIR__ . '/../..' . '/app/Models/Admin/Admins.php',
+        'App\\Models\\User\\Users' => __DIR__ . '/../..' . '/app/Models/User/Users.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Arcanedev\\LogViewer\\Commands\\CheckCommand' => __DIR__ . '/..' . '/arcanedev/log-viewer/src/Commands/CheckCommand.php',
         'Arcanedev\\LogViewer\\Commands\\Command' => __DIR__ . '/..' . '/arcanedev/log-viewer/src/Commands/Command.php',
         'Arcanedev\\LogViewer\\Commands\\PublishCommand' => __DIR__ . '/..' . '/arcanedev/log-viewer/src/Commands/PublishCommand.php',
@@ -3654,10 +3655,6 @@ class ComposerStaticInit7af2e1011781c1593ccbfa8f9bb5b1af
         'Symfony\\Thanks\\Command\\ThanksCommand' => __DIR__ . '/..' . '/symfony/thanks/src/Command/ThanksCommand.php',
         'Symfony\\Thanks\\GitHubClient' => __DIR__ . '/..' . '/symfony/thanks/src/GitHubClient.php',
         'Symfony\\Thanks\\Thanks' => __DIR__ . '/..' . '/symfony/thanks/src/Thanks.php',
-        'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
-        'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
-        'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
-        'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
